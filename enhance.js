@@ -31,7 +31,9 @@
     '.ec-glow::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;',
     'background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.10),transparent 60%)}',
     '.ec-glow:hover::after{opacity:1}',
-    '@media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;translate:0 0;scale:1}}'
+    '@keyframes ecHero{from{opacity:0;translate:0 46px;scale:.96;filter:blur(12px)}to{opacity:1;translate:0 0;scale:1;filter:blur(0)}}',
+    '.ec-hero{animation:ecHero 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--rv-d,0ms)}',
+    '@media (prefers-reduced-motion:reduce){.ec-hero{animation:none}.rv{transition:none;opacity:1;translate:0 0;scale:1}}'
   ].join('');
   var st = document.createElement('style');
   st.textContent = css;
@@ -128,10 +130,16 @@
     var sections = Array.prototype.slice.call(main.querySelectorAll(':scope > section, :scope > div > section'));
     sections.forEach(function (sec, si) {
       if (si === 0) {
+        if (sec.hasAttribute('data-custom-hero')) return;
+        if (document.documentElement.hasAttribute('data-intro')) return;
         // hero: staggered entrance on load
         var wrap = sec.querySelector('h1');
         wrap = wrap ? wrap.parentElement : sec;
-        Array.prototype.forEach.call(wrap.children, function (c, i) { reveal(c, 120 + i * 130, null); });
+        Array.prototype.forEach.call(wrap.children, function (c, i) {
+          if (reduce) return;
+          c.style.setProperty('--rv-d', (200 + i * 170) + 'ms');
+          c.classList.add('ec-hero');
+        });
         return;
       }
       // section heading block + grid children
