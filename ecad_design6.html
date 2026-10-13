@@ -121,27 +121,124 @@ html[data-intro] #intro-overlay{display:block}
 @media (max-width:640px){.ct-viewport{padding-top:24px!important;padding-bottom:28px!important}.ct-frame{width:290px;height:242px;margin:-121px 0 0 -145px}}
 @media (prefers-reduced-motion:reduce){.ct-frame{animation:none}.trending-header-reveal,.trending-carousel-reveal{opacity:1!important;transform:none!important;filter:none!important}}
 
-/* Newsletter Continuous Flowing Gradient Wave Effect (Left-to-Right, z-0) */
-.nl-wave-container{position:absolute;inset:-30px;overflow:hidden;pointer-events:none;z-index:0;border-radius:1.5rem}
-.nl-wave-base{position:absolute;inset:0;background:#080d12;z-index:1}
-.nl-wave-track{position:absolute;top:-25%;bottom:-25%;left:0;width:200%;z-index:2;filter:blur(60px);opacity:0.92;will-change:transform;animation:nlFlowLeftToRight 10s linear infinite;
- background:linear-gradient(90deg,#070f18 0%,rgba(0,229,191,0.32) 15%,rgba(0,153,255,0.28) 28%,#070f18 45%,#080d12 50%,#070f18 55%,rgba(0,229,191,0.32) 65%,rgba(0,153,255,0.28) 78%,#070f18 95%,#080d12 100%)}
-.nl-wave-track-2{position:absolute;top:-20%;bottom:-20%;left:0;width:200%;z-index:3;filter:blur(55px);opacity:0.8;will-change:transform;animation:nlFlowLeftToRightSecondary 8.5s ease-in-out infinite alternate;
- background:radial-gradient(ellipse 42% 70% at 25% 45%,rgba(0,229,191,0.35) 0%,transparent 65%),radial-gradient(ellipse 45% 70% at 75% 55%,rgba(0,153,255,0.32) 0%,transparent 65%),radial-gradient(ellipse 35% 60% at 50% 50%,rgba(24,214,176,0.22) 0%,transparent 70%);
- background-size:100% 100%}
-.nl-wave-pulse{position:absolute;inset:0;width:200%;z-index:4;filter:blur(65px);opacity:0.65;will-change:transform;animation:nlFlowLeftToRight 12s linear infinite;
- background:linear-gradient(105deg,transparent 0%,rgba(0,229,191,0.25) 20%,rgba(0,153,255,0.3) 32%,transparent 45%,transparent 50%,rgba(0,229,191,0.25) 70%,rgba(0,153,255,0.3) 82%,transparent 95%)}
-@keyframes nlFlowLeftToRight{
- 0%{transform:translateX(-50%)}
- 100%{transform:translateX(0%)}
+/* Apple Intelligence / Siri Style Multi-Directional Ambient Mesh Gradient Aura */
+.apple-aura-wrap{position:absolute;inset:-50px;overflow:hidden;pointer-events:none;z-index:0;border-radius:2.5rem;background:#050b14}
+.apple-aura-blur-stage{position:absolute;inset:0;filter:blur(80px);will-change:transform}
+.apple-aura-orb{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;will-change:transform,opacity}
+/* Orb 1: Electric Cyan/Teal (#00e5bf) - Top-Left */
+.apple-aura-orb-1{width:560px;height:560px;left:-10%;top:-15%;background:radial-gradient(circle,rgba(0,229,191,0.45) 0%,rgba(0,229,191,0.16) 50%,transparent 70%);animation:appleAuraOrb1 12s cubic-bezier(0.42,0,0.58,1) infinite alternate}
+/* Orb 2: Vivid Royal Azure (#0070f3) - Bottom-Right */
+.apple-aura-orb-2{width:580px;height:580px;right:-10%;bottom:-15%;background:radial-gradient(circle,rgba(0,112,243,0.48) 0%,rgba(0,112,243,0.18) 52%,transparent 72%);animation:appleAuraOrb2 14s cubic-bezier(0.42,0,0.58,1) infinite alternate}
+/* Orb 3: Deep Violet/Indigo (#4338ca) - Top-Right */
+.apple-aura-orb-3{width:520px;height:520px;right:-5%;top:-10%;background:radial-gradient(circle,rgba(67,56,202,0.52) 0%,rgba(99,102,241,0.22) 50%,transparent 70%);animation:appleAuraOrb3 16s cubic-bezier(0.42,0,0.58,1) infinite alternate}
+/* Orb 4: Omni Electric Surge (#00e5bf + #0070f3) - Bottom-Left */
+.apple-aura-orb-4{width:500px;height:500px;left:-5%;bottom:-10%;background:radial-gradient(circle,rgba(0,229,191,0.38) 0%,rgba(0,112,243,0.28) 48%,transparent 70%);animation:appleAuraOrb4 11s cubic-bezier(0.42,0,0.58,1) infinite alternate}
+/* Concentric Breathing Wave Ripples */
+.apple-aura-ripple-1{position:absolute;left:50%;top:50%;width:130%;height:130%;margin:-65% 0 0 -65%;border-radius:50%;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,229,191,0.18) 60%,transparent 75%);animation:appleAuraRipple 10s ease-in-out infinite;pointer-events:none}
+.apple-aura-ripple-2{position:absolute;left:50%;top:50%;width:150%;height:150%;margin:-75% 0 0 -75%;border-radius:50%;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,112,243,0.16) 65%,transparent 80%);animation:appleAuraRipple 15s ease-in-out infinite reverse;pointer-events:none}
+/* Center Contrast Vignette Overlay for razor-sharp legibility */
+.apple-aura-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 50%,rgba(5,11,20,0.76) 0%,rgba(5,11,20,0.52) 55%,rgba(5,11,20,0.2) 100%);pointer-events:none;z-index:2}
+@keyframes appleAuraOrb1{
+ 0%{transform:translate(0,0) scale(0.9) rotate(0deg)}
+ 33%{transform:translate(25%,35%) scale(1.28) rotate(40deg)}
+ 66%{transform:translate(45%,15%) scale(1.05) rotate(90deg)}
+ 100%{transform:translate(15%,50%) scale(1.22) rotate(140deg)}
 }
-@keyframes nlFlowLeftToRightSecondary{
- 0%{transform:translateX(-25%) scaleY(0.92)}
- 50%{transform:translateX(-5%) scaleY(1.08)}
- 100%{transform:translateX(15%) scaleY(0.96)}
+@keyframes appleAuraOrb2{
+ 0%{transform:translate(0,0) scale(1.2) rotate(0deg)}
+ 33%{transform:translate(-30%,-25%) scale(0.85) rotate(-50deg)}
+ 66%{transform:translate(-45%,-10%) scale(1.25) rotate(-110deg)}
+ 100%{transform:translate(-15%,-40%) scale(0.95) rotate(-160deg)}
+}
+@keyframes appleAuraOrb3{
+ 0%{transform:translate(0,0) scale(0.95)}
+ 50%{transform:translate(-35%,35%) scale(1.3)}
+ 100%{transform:translate(-10%,-20%) scale(1.05)}
+}
+@keyframes appleAuraOrb4{
+ 0%{transform:translate(0,0) scale(1.1)}
+ 50%{transform:translate(30%,-30%) scale(0.88)}
+ 100%{transform:translate(15%,25%) scale(1.25)}
+}
+@keyframes appleAuraRipple{
+ 0%{transform:scale(0.82);opacity:0.35}
+ 50%{transform:scale(1.18);opacity:0.9}
+ 100%{transform:scale(0.82);opacity:0.35}
 }
 @media (prefers-reduced-motion:reduce){
- .nl-wave-track,.nl-wave-track-2,.nl-wave-pulse{animation:none!important}
+ .apple-aura-orb-1,.apple-aura-orb-2,.apple-aura-orb-3,.apple-aura-orb-4,.apple-aura-ripple-1,.apple-aura-ripple-2{animation:none!important}
+}
+
+/* Glassmorphic Apple-Style Card Styling */
+.apple-glass-card{
+ position:relative;border-radius:32px;overflow:hidden;
+ background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.02) 100%),rgba(5,11,20,0.58);
+ backdrop-filter:blur(40px) saturate(190%);-webkit-backdrop-filter:blur(40px) saturate(190%);
+ border:1px solid rgba(255,255,255,0.16);
+ box-shadow:0 30px 60px -15px rgba(0,0,0,0.75),inset 0 1px 1px 0 rgba(255,255,255,0.35),inset 0 0 25px rgba(0,229,191,0.05);
+ isolation:isolate;transition:border-color 0.4s ease,box-shadow 0.4s ease;
+}
+.apple-glass-card:hover{
+ border-color:rgba(255,255,255,0.24);
+ box-shadow:0 35px 70px -15px rgba(0,0,0,0.8),inset 0 1px 2px 0 rgba(255,255,255,0.45),inset 0 0 35px rgba(0,229,191,0.08);
+}
+.apple-glass-input{
+ background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+ border:1px solid rgba(255,255,255,0.14);box-shadow:inset 0 1px 2px rgba(0,0,0,0.4);transition:all 0.3s ease;
+}
+.apple-glass-input:focus-within{
+ background:rgba(255,255,255,0.09);border-color:rgba(0,229,191,0.6);
+ box-shadow:0 0 15px rgba(0,229,191,0.2),inset 0 1px 2px rgba(0,0,0,0.4);
+}
+.apple-glass-pill{
+ background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+ border:1px solid rgba(255,255,255,0.16);box-shadow:inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+/* Footer Section Scroll-Reveal Entrance Animation */
+.footer-reveal-container{
+  opacity:0;
+  transform:translateY(36px) scale(0.985);
+  filter:blur(6px);
+  transition:opacity 0.95s cubic-bezier(0.16,1,0.3,1),transform 0.95s cubic-bezier(0.16,1,0.3,1),filter 0.95s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform,filter;
+}
+.footer-reveal-col{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform;
+}
+.footer-reveal-watermark{
+  opacity:0;
+  transform:translateY(20px) scale(0.97);
+  transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1) 0.2s,transform 1.1s cubic-bezier(0.16,1,0.3,1) 0.2s;
+  will-change:opacity,transform;
+}
+.footer-reveal-bottom{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.38s,transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.38s;
+  will-change:opacity,transform;
+}
+
+/* Revealed active state */
+footer.footer-revealed .footer-reveal-container{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+footer.footer-revealed .footer-col-1{opacity:1;transform:translateY(0);transition-delay:0.12s}
+footer.footer-revealed .footer-col-2{opacity:1;transform:translateY(0);transition-delay:0.22s}
+footer.footer-revealed .footer-col-3{opacity:1;transform:translateY(0);transition-delay:0.32s}
+footer.footer-revealed .footer-col-4{opacity:1;transform:translateY(0);transition-delay:0.42s}
+footer.footer-revealed .footer-reveal-watermark{opacity:1;transform:translateY(0) scale(1)}
+footer.footer-revealed .footer-reveal-bottom{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion:reduce){
+  .footer-reveal-container,.footer-reveal-col,.footer-reveal-watermark,.footer-reveal-bottom{
+    opacity:1!important;transform:none!important;filter:none!important;transition:none!important;
+  }
 }
 </style></head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-black min-h-screen flex flex-col justify-between overflow-x-hidden" style="background: radial-gradient(120% 100% at 50% 0%, rgb(11, 31, 42) 0%, rgb(5, 10, 18) 60%, rgb(3, 6, 11) 100%) fixed;">
@@ -986,7 +1083,7 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
 <article class="article-item group bg-[#111D2B] border border-white/10 hover:border-primary/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer" data-category="dfh">
 <div>
 <div class="relative w-full aspect-video overflow-hidden bg-[#0B1420]">
-<img alt="Avoiding Solder Bridging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XMPynctpKm0rW5ff5ggBQjft6Tx-ubZnofKhEi9aT8qyxHDYbQu3Yf1vHODqI-_I-3L1wMneDTbj6YGzayOe-WbQcSz7OdVU2QnBBf1dVn2auqCsLwbq1uXJ3o_fFPsCLZ8u1k4NLA9J6aWEKx1kDBJHc8CyNbVP3sYaE1Jaw-FEguFXDSC_2dpEKOwzFg2zd_AAXbZsQmeOFHG-OsFM8ZyiA771_4Le1FmofLPQq4moFjQlh2IZogjw">
+<img alt="Avoiding Solder Bridging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/audio.jpg">
 <div class="absolute inset-0 bg-gradient-to-t from-[#111D2B]/90 via-transparent to-black/30"></div>
 <div class="absolute top-3 left-3">
 <span class="px-2.5 py-1 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30 font-mono text-[10px] font-semibold tracking-wider uppercase">DFH / Assembly</span>
@@ -1036,11 +1133,173 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
 </div>
 </div>
 </article>
+<!-- Article 7 -->
+<article class="article-item group bg-[#111D2B] border border-white/10 hover:border-primary/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer" data-category="si">
+<div>
+<div class="relative w-full aspect-video overflow-hidden bg-[#0B1420]">
+<img alt="DDR5 Fly-by Topology vs Clamshell Routing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/diff.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-[#111D2B]/90 via-transparent to-black/30"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-[#2134C2]/40 backdrop-blur-md text-[#BCC2FF] border border-[#2134C2]/60 font-mono text-[10px] font-semibold tracking-wider uppercase">Signal Integrity</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-slate-300 font-mono text-xs border border-white/10">11 min read</span>
+</div>
+<div class="absolute bottom-3 right-3 flex items-center gap-2.5 z-10 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 ease-out">
+<button aria-label="Comment" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[19px]">chat_bubble</span>
+</button>
+<button aria-label="Bookmark" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleBookmark(this)">
+<span class="material-symbols-outlined text-[19px]">bookmark</span>
+</button>
+<button aria-label="Like" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleLike(this)">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6 pb-2">
+<h3 class="font-headline text-lg font-semibold text-white group-hover:text-primary transition-colors line-clamp-2 mb-2 leading-snug">
+                DDR5 Fly-by Topology vs. Clamshell Routing &amp; T-Branch Skew
+              </h3>
+<p class="font-body text-sm text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+                Address and command bus skew tuning, CA training considerations, and impedance matching across high-density multi-DIMM channel topologies.
+              </p>
+</div>
+</div>
+<div class="px-6 pb-5 pt-3 border-t border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-white flex items-center justify-center font-mono text-xs font-bold border border-white/10">HD</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-white leading-tight">Dr. Henrik Dahl</span>
+<span class="font-mono text-[10px] text-slate-400">SI Specialist</span>
+</div>
+</div>
+<div class="flex items-center gap-3 font-mono text-xs text-slate-400">
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-rose-400">favorite</span>
+<span class="">294</span>
+</span>
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span>
+<span class="">17.8k</span>
+</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all text-[18px]">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Article 8 -->
+<article class="article-item group bg-[#111D2B] border border-white/10 hover:border-primary/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer" data-category="power">
+<div>
+<div class="relative w-full aspect-video overflow-hidden bg-[#0B1420]">
+<img alt="High-Density Interleaved Buck Converter Layout" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/gan.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-[#111D2B]/90 via-transparent to-black/30"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-[#006b58]/80 backdrop-blur-md text-[#72f9d8] border border-primary/30 font-mono text-[10px] font-semibold tracking-wider uppercase">Power Electronics</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-slate-300 font-mono text-xs border border-white/10">14 min read</span>
+</div>
+<div class="absolute bottom-3 right-3 flex items-center gap-2.5 z-10 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 ease-out">
+<button aria-label="Comment" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[19px]">chat_bubble</span>
+</button>
+<button aria-label="Bookmark" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleBookmark(this)">
+<span class="material-symbols-outlined text-[19px]">bookmark</span>
+</button>
+<button aria-label="Like" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleLike(this)">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6 pb-2">
+<h3 class="font-headline text-lg font-semibold text-white group-hover:text-primary transition-colors line-clamp-2 mb-2 leading-snug">
+                High-Density Interleaved Buck Converter Layout for AI Accelerators
+              </h3>
+<p class="font-body text-sm text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+                Thermal relief via stitching, multiphase transient response optimization, and ultra-low ESR decoupling strategies for sub-0.8V 500A core power rails.
+              </p>
+</div>
+</div>
+<div class="px-6 pb-5 pt-3 border-t border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-white flex items-center justify-center font-mono text-xs font-bold border border-white/10">ML</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-white leading-tight">Mei Lin</span>
+<span class="font-mono text-[10px] text-slate-400">Power Architect</span>
+</div>
+</div>
+<div class="flex items-center gap-3 font-mono text-xs text-slate-400">
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-rose-400">favorite</span>
+<span class="">389</span>
+</span>
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span>
+<span class="">23.4k</span>
+</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all text-[18px]">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- Article 9 -->
+<article class="article-item group bg-[#111D2B] border border-white/10 hover:border-primary/50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer" data-category="embedded">
+<div>
+<div class="relative w-full aspect-video overflow-hidden bg-[#0B1420]">
+<img alt="Mixed-Signal Star Grounding and Isolation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/serdes.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-[#111D2B]/90 via-transparent to-black/30"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30 font-mono text-[10px] font-semibold tracking-wider uppercase">Embedded Systems</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2.5 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-slate-300 font-mono text-xs border border-white/10">8 min read</span>
+</div>
+<div class="absolute bottom-3 right-3 flex items-center gap-2.5 z-10 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 ease-out">
+<button aria-label="Comment" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[19px]">chat_bubble</span>
+</button>
+<button aria-label="Bookmark" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleBookmark(this)">
+<span class="material-symbols-outlined text-[19px]">bookmark</span>
+</button>
+<button aria-label="Like" class="w-[42px] h-[42px] rounded-full bg-slate-950/90 backdrop-blur-md text-slate-200 border border-white/20 flex items-center justify-center hover:scale-110 hover:text-primary hover:border-primary/40 transition-all shadow-xl" onclick="event.stopPropagation(); window.toggleLike(this)">
+<span class="material-symbols-outlined text-[19px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-6 pb-2">
+<h3 class="font-headline text-lg font-semibold text-white group-hover:text-primary transition-colors line-clamp-2 mb-2 leading-snug">
+                Mixed-Signal Star Grounding &amp; Isolation in Industrial Microcontrollers
+              </h3>
+<p class="font-body text-sm text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">
+                Separating high-energy switched motor drives from sensitive 24-bit delta-sigma ADC references without introducing parasitic ground loops.
+              </p>
+</div>
+</div>
+<div class="px-6 pb-5 pt-3 border-t border-white/10 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-white flex items-center justify-center font-mono text-xs font-bold border border-white/10">AC</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-white leading-tight">Alex Chen</span>
+<span class="font-mono text-[10px] text-slate-400">Lead Systems EE</span>
+</div>
+</div>
+<div class="flex items-center gap-3 font-mono text-xs text-slate-400">
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-rose-400">favorite</span>
+<span class="">215</span>
+</span>
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span>
+<span class="">15.1k</span>
+</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all text-[18px]">arrow_forward</span>
+</div>
+</div>
+</article>
 </div>
 <!-- Pagination / Load More Bar -->
 <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
 <div class="font-mono text-xs text-slate-400">
-          Showing <span class="text-white font-semibold">1–6</span> of <span class="text-primary font-semibold">72</span> technical guides
+          Showing <span class="text-white font-semibold">1–9</span> of <span class="text-primary font-semibold">72</span> technical guides
         </div>
 <div class="flex items-center gap-2">
 <button class="px-3.5 py-2 rounded-lg bg-[#111D2B] border border-white/10 text-slate-400 hover:text-white font-mono text-xs transition-colors flex items-center gap-1">
@@ -1067,82 +1326,107 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
 <!-- SECTION 5: ENGINEERING NEWSLETTER (Direct transition from articles, NO Featured Works) -->
 <section class="w-full bg-[#080D14] py-16 lg:py-24 relative overflow-hidden border-t border-white/5">
 <div class="max-w-[1200px] mx-auto px-6 md:px-10">
-<div class="relative rounded-3xl bg-[#080d12] p-8 md:p-14 lg:p-16 shadow-2xl overflow-hidden border border-white/10" style="isolation: isolate;">
-<!-- Left-to-Right Continuous Flowing Gradient Waves (Background z-0) -->
-<div aria-hidden="true" class="nl-wave-container">
-<div class="nl-wave-base"></div>
-<div class="nl-wave-track"></div>
-<div class="nl-wave-track-2"></div>
-<div class="nl-wave-pulse"></div>
-</div>
-<!-- Subtle Ambient Radial Glows -->
-<div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] z-[1]"></div>
-<div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-[100px] z-[1]"></div>
-<!-- Subtle surface grid mesh overlay for high-tech fidelity -->
-<div class="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(#18D6B0_1px,transparent_1px)] [background-size:20px_20px] z-[2]"></div>
-<div class="relative z-10 max-w-2xl mx-auto text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary font-mono text-xs font-semibold tracking-wider uppercase mb-4 border border-white/5 backdrop-blur-sm">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-<span class="">ENGINEERING INTELLIGENCE</span>
-</div>
-<h2 class="font-headline text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
-            Stay ahead of what's being built.
-          </h2>
+<div class="apple-glass-card p-8 md:p-14 lg:p-16">
+  <!-- Top Specular Glass Highlight Rim -->
+  <div class="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent z-20"></div>
+
+  <!-- Apple Intelligence / Siri Multi-Directional Ambient Mesh Gradient Aura (Background z-0) -->
+  <div aria-hidden="true" class="apple-aura-wrap">
+    <div class="apple-aura-blur-stage">
+      <div class="apple-aura-orb apple-aura-orb-1"></div>
+      <div class="apple-aura-orb apple-aura-orb-2"></div>
+      <div class="apple-aura-orb apple-aura-orb-3"></div>
+      <div class="apple-aura-orb apple-aura-orb-4"></div>
+      <div class="apple-aura-ripple-1"></div>
+      <div class="apple-aura-ripple-2"></div>
+    </div>
+    <div class="apple-aura-vignette"></div>
+  </div>
+
+  <!-- Subtle surface grid mesh overlay for high-tech fidelity -->
+  <div class="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(#18D6B0_1px,transparent_1px)] [background-size:20px_20px] z-[3]"></div>
+
+  <div class="relative z-10 max-w-2xl mx-auto text-center apple-glass-card-inner">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full apple-glass-pill text-primary font-mono text-xs font-semibold tracking-wider uppercase mb-4">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+      <span class="">ENGINEERING INTELLIGENCE</span>
+    </div>
+    <h2 class="font-headline text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-sm">
+      Stay ahead of what's being built.
+    </h2>
 <p class="font-body text-sm sm:text-base text-on-surface-variant mb-8 leading-relaxed">
-            The best engineering work doesn't always make headlines. Get practical design knowledge, technical guides, product updates, and community highlights delivered to your inbox.
-          </p>
-<form class="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto mb-4" onsubmit="event.preventDefault(); window.handleFooterNewsletter(this);">
-<div class="relative w-full flex-1">
-<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">alternate_email</span>
-<input class="w-full pl-11 pr-4 py-3.5 bg-surface-container-high/90 backdrop-blur-sm text-white text-sm placeholder:text-outline rounded-xl outline-none focus:border-primary focus:ring-1 focus:ring-primary border border-white/10 transition-all" placeholder="Your email address" required="" type="email">
-</div>
-<button class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00D6C9] to-[#2563EB] text-[#050A12] font-headline text-sm font-bold hover:shadow-[0_0_20px_rgba(24,214,176,0.35)] hover:scale-105 transition-all flex items-center justify-center gap-2 whitespace-nowrap" type="submit">
-<span class="">Subscribe</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-</form>
-<div class="hidden font-mono text-xs text-primary py-2 flex items-center justify-center gap-2" id="footer-newsletter-feedback">
-<span class="material-symbols-outlined text-[16px]">verified</span>
-<span class="">Subscribed successfully. You are on the priority engineering distribution list.</span>
-</div>
-<p class="font-mono text-xs text-slate-500 tracking-wide">
-            Occasional updates. Practical knowledge. Unsubscribe anytime.
-          </p>
-</div>
+      The best engineering work doesn't always make headlines. Get practical design knowledge, technical guides, product updates, and community highlights delivered to your inbox.
+    </p>
+    <form class="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto mb-4" onsubmit="event.preventDefault(); window.handleFooterNewsletter(this);">
+      <div class="relative w-full flex-1 apple-glass-input rounded-xl">
+        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">alternate_email</span>
+        <input class="w-full pl-11 pr-4 py-3.5 bg-transparent text-white text-sm placeholder:text-slate-400 outline-none" placeholder="Your email address" required="" type="email">
+      </div>
+      <button class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00D6C9] to-[#2563EB] text-[#050A12] font-headline text-sm font-bold hover:shadow-[0_0_25px_rgba(24,214,176,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-lg" type="submit">
+        <span class="">Subscribe</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+    </form>
+    <div class="hidden font-mono text-xs text-primary py-2 flex items-center justify-center gap-2" id="footer-newsletter-feedback">
+      <span class="material-symbols-outlined text-[16px]">verified</span>
+      <span class="">Subscribed successfully. You are on the priority engineering distribution list.</span>
+    </div>
+    <p class="font-mono text-xs text-slate-400 tracking-wide">
+      Occasional updates. Practical knowledge. Unsubscribe anytime.
+    </p>
+  </div>
 </div>
 </div>
 </section>
 </main>
-<!-- FOOTER: EXACT MINIMALIST LUXURY DESIGN (REFERENCE MOCKUP) -->
-<footer class="relative w-full z-20 py-10 md:py-14 px-4 sm:px-6 md:px-8 bg-background overflow-hidden">
-  <div class="relative max-w-7xl mx-auto rounded-[32px] bg-[#0c0f14] border border-white/10 shadow-2xl overflow-hidden pt-12 md:pt-16 px-6 md:px-12 lg:px-16 pb-8 flex flex-col justify-between" style="min-height: 480px;">
+<!-- FOOTER: ASYMMETRICAL EDITORIAL ENGINEERING FOOTER MATCHING WEBSITE THEME WITH REVEAL ANIMATION -->
+<footer id="site-footer" class="relative w-full z-20 py-10 md:py-14 px-4 sm:px-6 md:px-8 bg-background overflow-hidden">
+  <div class="footer-reveal-container relative max-w-7xl mx-auto rounded-[32px] bg-gradient-to-b from-[#0a1526]/90 via-[#070e1a]/95 to-[#060a12] border border-teal-500/25 shadow-[0_0_50px_-15px_rgba(24,214,176,0.18)] overflow-hidden pt-12 md:pt-16 px-6 md:px-12 lg:px-16 pb-8 flex flex-col justify-between" style="min-height: 520px; isolation: isolate;">
     
-    <!-- Top 4-Column Navigation Row -->
-    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 lg:mb-14">
+    <!-- Ambient Cyan/Navy Radial Glow Backdrop (z-0) -->
+    <div class="absolute inset-0 pointer-events-none z-0" style="background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(24, 214, 176, 0.12) 0%, rgba(33, 52, 194, 0.08) 50%, transparent 80%);"></div>
+
+    <!-- 4-Column Asymmetrical Editorial Grid (Top Layer z-10) -->
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1.3fr_1fr_1fr] gap-10 lg:gap-12 mb-10 lg:mb-14">
       
-      <!-- Column 1: About -->
-      <div>
-        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">About</h4>
-        <p class="text-[12px] leading-relaxed text-[#8a929f] font-body max-w-[240px]">
-          Engineering platform designed to bring precision, clarity, and timeless hardware architecture.
+      <!-- Column 1 (About / Identity) -->
+      <div class="space-y-4 footer-reveal-col footer-col-1">
+        <div class="font-mono text-xs uppercase tracking-widest font-semibold text-primary">About</div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#111D2B] border border-primary/40 flex items-center justify-center text-primary shadow-[0_0_14px_rgba(24,214,176,0.3)] shrink-0">
+            <span class="material-symbols-outlined text-[24px]">developer_board</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-[19px] text-white font-bold tracking-tight leading-tight">ECAD Bridge</span>
+            <span class="font-mono text-[9.5px] text-primary tracking-widest uppercase font-semibold">SYSTEMS ARCHITECTURE</span>
+          </div>
+        </div>
+        <p class="font-body text-xs text-slate-300 leading-relaxed max-w-sm">
+          High-fidelity electronic design bridge powering precision schematics, component synthesis, transmission line solvers, and multi-CAD interchange specifications.
         </p>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#09131f] border border-primary/35 text-[11px] font-mono shadow-[0_0_12px_rgba(24,214,176,0.15)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#18D6B0]"></span>
+          <span class="font-semibold text-primary tracking-wide">CORE OPERATIONAL</span>
+          <span class="text-slate-500">·</span>
+          <span class="text-slate-300">V4.8.2-SPEC</span>
+        </div>
       </div>
 
-      <!-- Column 2: Get Updates -->
-      <div>
-        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Get Updates</h4>
-        <p class="text-[12px] leading-relaxed text-[#8a929f] font-body mb-4 max-w-[250px]">
-          Share your email and receive engineering analysis and hardware updates.
+      <!-- Column 2 (Newsletter / Subscription) -->
+      <div class="space-y-4 footer-reveal-col footer-col-2">
+        <div class="font-mono text-xs uppercase tracking-widest font-semibold text-primary">Get Updates</div>
+        <p class="font-body text-xs text-slate-300 leading-relaxed max-w-sm">
+          Get engineering updates and design workflows directly to your inbox.
         </p>
-        <form class="relative max-w-[250px] border-b border-white/20 focus-within:border-white transition-colors pb-1.5 flex items-center" onsubmit="event.preventDefault(); window.handleFooterNewsletter(this);">
+        <form class="relative max-w-sm border-b border-primary/40 focus-within:border-primary transition-colors pb-1.5 flex items-center justify-between" onsubmit="event.preventDefault(); window.handleFooterNewsletter(this);">
           <input 
             type="email" 
             placeholder="Email Address" 
             required 
-            class="w-full bg-transparent text-[12px] text-white placeholder-[#5a6270] border-none ring-0 outline-none focus:outline-none focus:ring-0 shadow-none pr-6 font-body"
-            style="box-shadow: none; border: none; outline: none;"
+            class="w-full bg-transparent text-xs text-white placeholder-slate-500 border-none ring-0 outline-none focus:outline-none focus:ring-0 shadow-none pr-4 font-body"
+            style="box-shadow: none !important; border: none !important; outline: none !important;"
           >
-          <button type="submit" aria-label="Submit" class="text-white hover:text-primary transition-colors text-sm font-light leading-none">
+          <button type="submit" aria-label="Submit" class="text-primary hover:text-white hover:translate-x-1 transition-all text-base font-light leading-none shrink-0 px-1 cursor-pointer">
             →
           </button>
         </form>
@@ -1152,40 +1436,48 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
         </div>
       </div>
 
-      <!-- Column 3: Menu -->
-      <div class="lg:pl-6">
-        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Menu</h4>
-        <ul class="space-y-2 text-[12px] text-[#8a929f] font-body">
-          <li><a href="#" class="hover:text-white transition-colors block">Calculators</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">FootprintForge</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">SymForge</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">Documentation</a></li>
+      <!-- Column 3 (Platform / Explore) -->
+      <div class="space-y-4 lg:pl-4 footer-reveal-col footer-col-3">
+        <div class="font-mono text-xs uppercase tracking-widest font-semibold text-primary">Platform</div>
+        <ul class="space-y-2.5 font-body text-xs text-slate-300">
+          <li><a href="#" class="hover:text-primary transition-colors block">Calculators Suite</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">FootprintForge IPC</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">SymForge IEEE</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">Signal Integrity Node</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Connect With Us -->
-      <div class="lg:pl-6">
-        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Connect With Us</h4>
-        <ul class="space-y-2 text-[12px] text-[#8a929f] font-body">
-          <li><a href="#" class="hover:text-white transition-colors block">GitHub</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">Telegram</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">Discord</a></li>
-          <li><a href="#" class="hover:text-white transition-colors block">Email</a></li>
+      <!-- Column 4 (Resources & Company) -->
+      <div class="space-y-4 lg:pl-4 footer-reveal-col footer-col-4">
+        <div class="font-mono text-xs uppercase tracking-widest font-semibold text-primary">Resources</div>
+        <ul class="space-y-2.5 font-body text-xs text-slate-300">
+          <li><a href="#" class="hover:text-primary transition-colors block">Documentation &amp; Whitepapers</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">IPC-7351C Specs</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">System Architects &amp; Contact</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors block">Security Compliance</a></li>
         </ul>
       </div>
 
     </div>
 
-    <!-- Monumental Giant Brand Wordmark "ECAD BRIDGE" -->
-    <div aria-hidden="true" class="relative w-full overflow-hidden select-none pointer-events-none my-auto flex justify-center items-center py-2">
-      <div class="font-headline uppercase whitespace-nowrap font-black select-none pointer-events-none w-full text-center tracking-tighter leading-none" style="font-size: clamp(3.5rem, 11vw, 9.6rem); letter-spacing: -0.04em; color: rgba(255, 255, 255, 0.08);">
+    <!-- Giant Background Typography (Watermark z-0) with Teal Tint & Light Top Blur -->
+    <div aria-hidden="true" class="footer-reveal-watermark absolute inset-x-0 bottom-14 md:bottom-16 pointer-events-none select-none overflow-hidden z-0 flex items-end justify-center leading-none">
+      <div 
+        class="font-headline uppercase whitespace-nowrap font-black select-none pointer-events-none w-full text-center tracking-tighter" 
+        style="font-size: clamp(3.8rem, 11.5vw, 10.2rem); letter-spacing: -0.04em; color: rgba(24, 214, 176, 0.075); filter: blur(2px); -webkit-filter: blur(2px); mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,1) 90%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,1) 90%);"
+      >
         ECAD BRIDGE
       </div>
     </div>
 
-    <!-- Bottom Copyright Note -->
-    <div class="relative z-10 pt-4 text-[11px] text-[#555d6b] font-body">
-      @2026 ecadbridge. All Right Reserved.
+    <!-- Bottom Copyright Bar with Thin Subtle Divider Line (z-10) -->
+    <div class="footer-reveal-bottom relative z-10 border-t border-primary/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+      <div>© 2026 ECAD Bridge Systems Ltd.</div>
+      <div class="flex items-center gap-2 text-slate-400">
+        <span class="text-primary font-medium">ISO 9001:2015 Spec Ready</span>
+        <span class="text-slate-600">·</span>
+        <span>Strict Coordinate Precision</span>
+      </div>
     </div>
 
   </div>
@@ -1265,6 +1557,25 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
       input.value = '';
     }
   };
+
+  // 6. Footer Scroll-Reveal Entrance Animation
+  (function() {
+    const footer = document.getElementById('site-footer');
+    if (!footer) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      footer.classList.add('footer-revealed');
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add('footer-revealed');
+          observer.unobserve(footer);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    observer.observe(footer);
+  })();
 </script>
 
 
