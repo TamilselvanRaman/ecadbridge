@@ -60,18 +60,19 @@
   /* Viewer */
   #viewer{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:scale(1.03);transition:all .45s cubic-bezier(.16,1,.3,1)}
   #viewer.open{opacity:1;visibility:visible;transform:none}
-  .vbar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(10,14,22,.95);flex-wrap:wrap}
-  .vbar button,.vbar a{font:600 13px Inter;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;text-decoration:none;transition:all .25s}
+  .vbar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.1);background:rgba(10,14,22,.95);overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .vbar button,.vbar a{font:600 13px Inter;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;text-decoration:none;transition:all .25s;white-space:nowrap;shrink:0}
   .vbar button:hover,.vbar a:hover{background:rgba(255,255,255,.12)}
   .vbar button.act{background:#18D6B0;color:#05080e;border-color:#18D6B0}
-  .vbar .sp{flex:1}
-  .vbar .tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .vbar .sp{flex:1;min-width:8px}
+  .vbar .tabs{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .vbar .tabs::-webkit-scrollbar{display:none}
   #frame{flex:1;border:0;width:100%;background:#000}
   .loader{position:absolute;inset:56px 0 0;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .4s;pointer-events:none}
   .loader.hide{opacity:0}
   .spin{width:44px;height:44px;border-radius:50%;border:4px solid rgba(255,255,255,.15);border-top-color:#18D6B0;animation:sp 0.8s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
-  @media(max-width:480px){.cards{grid-template-columns:1fr}}
+  @media(max-width:640px){.wrap{padding:40px 16px 60px}h1{font-size:2.2rem;line-height:1.15}.cards{grid-template-columns:1fr;gap:16px}}
 </style>
 </head>
 <body>
@@ -81,7 +82,7 @@
 <main class="wrap">
   <header>
     <span class="eyebrow rv" style="--d:0ms"><span class="dot"></span>ECAD Bridge · Design Showcase</span>
-    <h1 class="rv" style="--d:120ms">Five Designs.<br>One Platform.</h1>
+    <h1 class="rv" style="--d:120ms">Six Designs.<br>One Platform.</h1>
     <p class="sub rv" style="--d:240ms">Pick a design direction below. Each opens full screen in a live preview, with scroll-reveal animations and interactive cards. Use the tabs to flip between designs.</p>
   </header>
 
@@ -106,7 +107,8 @@
     {file:'ecad_design2.html', name:'Ice Blue', tag:'Design 02', desc:'Crisp navy canvas with icy blue highlights. Clean, calm and highly readable.', ac:'#C1E8FF', acg:'rgba(193,232,255,.3)', pv:'linear-gradient(135deg,#052659,#021024)', sw:['#C1E8FF','#7DA0CA','#052659','#021024']},
     {file:'ecad_design3.html', name:'Neon Cyan', tag:'Design 03', desc:'Futuristic deep-ocean theme with glowing cyan gradients and bold contrast.', ac:'#00F2FE', acg:'rgba(0,242,254,.35)', pv:'linear-gradient(135deg,#06213f,#030A16)', sw:['#00F2FE','#4FACFE','#06213f','#030A16']},
     {file:'ecad_design4.html', name:'Solar Orange', tag:'Design 04', desc:'Warm ember-orange energy on a charcoal-navy base for a confident, bold feel.', ac:'#F97316', acg:'rgba(249,115,22,.38)', pv:'linear-gradient(135deg,#1c1410,#080D14)', sw:['#F97316','#FBBF24','#111827','#080D14']},
-    {file:'ecad_design5.html', name:'Violet Pulse', tag:'Design 05', desc:'Rich violet glassmorphism with luminous purple glow on a near-black canvas.', ac:'#8B5CF6', acg:'rgba(139,92,246,.4)', pv:'linear-gradient(135deg,#1e1040,#080812)', sw:['#8B5CF6','#C4B5FD','#1e1040','#080812']}
+    {file:'ecad_design5.html', name:'Violet Pulse', tag:'Design 05', desc:'Rich violet glassmorphism with luminous purple glow on a near-black canvas.', ac:'#8B5CF6', acg:'rgba(139,92,246,.4)', pv:'linear-gradient(135deg,#1e1040,#080812)', sw:['#8B5CF6','#C4B5FD','#1e1040','#080812']},
+    {file:'ecad_design6.html', name:'Oceanic Flagship', tag:'Design 06', desc:'Flagship engineering suite with 3D snap depth carousel, 9 technical guides, and Apple-style ambient mesh newsletter.', ac:'#18D6B0', acg:'rgba(24,214,176,.45)', pv:'linear-gradient(135deg,#0a1526,#060a12)', sw:['#18D6B0','#0070F3','#4338CA','#050B14']}
   ];
   var cards = document.getElementById('cards'), tabs = document.getElementById('tabs');
   var viewer = document.getElementById('viewer'), frame = document.getElementById('frame');

@@ -33,7 +33,20 @@
     '.ec-glow:hover::after{opacity:1}',
     '@keyframes ecHero{from{opacity:0;translate:0 46px;scale:.96;filter:blur(12px)}to{opacity:1;translate:0 0;scale:1;filter:blur(0)}}',
     '.ec-hero{animation:ecHero 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--rv-d,0ms)}',
-    '@media (prefers-reduced-motion:reduce){.ec-hero{animation:none}.rv{transition:none;opacity:1;translate:0 0;scale:1}}'
+    '@media (prefers-reduced-motion:reduce){.ec-hero{animation:none}.rv{transition:none;opacity:1;translate:0 0;scale:1}}',
+    'html, body{max-width:100vw;overflow-x:hidden}',
+    '.ec-mobile-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;cursor:pointer;transition:all .25s}',
+    '.ec-mobile-toggle:hover{background:rgba(255,255,255,.12);border-color:rgba(24,214,176,.5);color:#18D6B0}',
+    '@media (max-width:1023px){.ec-mobile-toggle{display:inline-flex!important}}',
+    '.ec-mobile-drawer{position:absolute;top:100%;left:0;right:0;background:rgba(9,14,22,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.12);padding:18px 24px 24px;display:none;flex-direction:column;gap:12px;box-shadow:0 24px 48px rgba(0,0,0,.6);z-index:90;animation:ecDrawer .28s cubic-bezier(.16,1,.3,1)}',
+    '.ec-mobile-drawer.open{display:flex!important}',
+    '@keyframes ecDrawer{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}',
+    '.ec-mobile-drawer a{display:flex;align-items:center;justify-content:between;padding:12px 14px;border-radius:8px;color:#c3d1dc;font:600 14px Inter,sans-serif;text-decoration:none;transition:all .2s;border-bottom:1px solid rgba(255,255,255,.04)}',
+    '.ec-mobile-drawer a:hover,.ec-mobile-drawer a.active{background:rgba(24,214,176,.08);color:#18D6B0;padding-left:18px}',
+    '.ec-mobile-drawer a span.arr{font-family:"Material Symbols Outlined";font-size:16px;opacity:.5}',
+    '.ec-mobile-drawer-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;background:rgba(33,52,194,.22);border:1px solid rgba(33,52,194,.5);color:#bcc2ff;font:600 12px "JetBrains Mono",monospace;text-decoration:none;transition:all .25s;margin-top:6px}',
+    '.ec-mobile-drawer-btn:hover{background:rgba(33,52,194,.38);color:#fff}',
+    '@media (max-width:640px){.cat-filter-row{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}.cat-filter-row::-webkit-scrollbar{display:none}}'
   ].join('');
   var st = document.createElement('style');
   st.textContent = css;
@@ -209,5 +222,70 @@
         c.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
+
+    /* ---------- Universal Responsive Mobile Navigation ---------- */
+    (function initMobileNav() {
+      var header = document.querySelector('header');
+      if (!header) return;
+      var nav = header.querySelector('nav');
+      if (!nav) return;
+
+      var existingBtn = header.querySelector('.ec-mobile-toggle, #mobile-menu-toggle');
+      if (existingBtn) return;
+
+      var btn = document.createElement('button');
+      btn.className = 'ec-mobile-toggle';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Toggle navigation menu');
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:24px">menu</span>';
+
+      var rightGroup = header.querySelector('.flex.items-center.gap-4.shrink-0') ||
+                       header.querySelector('[class*="flex"][class*="items-center"]:last-child') ||
+                       header.firstElementChild;
+      if (rightGroup) {
+        rightGroup.insertBefore(btn, rightGroup.firstChild);
+      } else {
+        header.appendChild(btn);
+      }
+
+      var drawer = document.createElement('div');
+      drawer.className = 'ec-mobile-drawer';
+
+      var linksHtml = Array.prototype.slice.call(nav.querySelectorAll('a')).map(function (a) {
+        var href = a.getAttribute('href') || '#';
+        var text = (a.textContent || '').trim();
+        var isAct = a.classList.contains('text-primary') || a.classList.contains('font-semibold');
+        return '<a href="' + href + '" class="' + (isAct ? 'active' : '') + '"><span>' + text + '</span><span class="arr">chevron_right</span></a>';
+      }).join('');
+
+      drawer.innerHTML = '<nav style="display:flex;flex-direction:column;gap:4px">' + linksHtml + '</nav>' +
+        '<a href="#" class="ec-mobile-drawer-btn"><span class="material-symbols-outlined" style="font-size:16px">memory</span><span>Skill Workstation</span></a>';
+
+      header.appendChild(drawer);
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = drawer.classList.contains('open');
+        drawer.classList.toggle('open');
+        var ic = btn.querySelector('.material-symbols-outlined');
+        if (ic) ic.textContent = isOpen ? 'menu' : 'close';
+      });
+
+      drawer.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          drawer.classList.remove('open');
+          var ic = btn.querySelector('.material-symbols-outlined');
+          if (ic) ic.textContent = 'menu';
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target)) {
+          drawer.classList.remove('open');
+          var ic = btn.querySelector('.material-symbols-outlined');
+          if (ic) ic.textContent = 'menu';
+        }
+      });
+    })();
   });
 })();

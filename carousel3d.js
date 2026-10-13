@@ -49,7 +49,17 @@
     }
 
     /* ---- 3. Physics & Spacing Configuration ---- */
-    var SPACING = 310;
+    function getSpacing() {
+      var w = window.innerWidth;
+      if (w < 480) return Math.min(270, Math.round(w * 0.72));
+      if (w < 768) return Math.min(290, Math.round(w * 0.76));
+      return 310;
+    }
+    var SPACING = getSpacing();
+    window.addEventListener('resize', function () {
+      SPACING = getSpacing();
+      render();
+    }, { passive: true });
     var ACTIVE_SCALE = 1.05;
     var SIDE_SCALE = 0.88;
     var SIDE_OP = 0.32;
