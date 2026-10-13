@@ -1113,99 +1113,81 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
 </div>
 </section>
 </main>
-<!-- FOOTER WITH OVERSIZED BACKGROUND WORDMARK "ECAD BRIDGE" -->
-<footer class="relative w-full z-20 py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-background overflow-hidden">
-  <div class="relative max-w-7xl mx-auto rounded-3xl border border-primary/20 shadow-2xl overflow-hidden pt-16 md:pt-20 px-6 md:px-10 lg:px-12 pb-0" style="background: radial-gradient(75% 65% at 50% 0%, rgba(24, 214, 176, 0.22) 0%, rgba(13, 43, 46, 0.45) 45%, rgba(10, 20, 32, 0.98) 85%), linear-gradient(135deg, #0a1420 0%, #0c2128 50%, #0d2b2e 100%); box-shadow: rgba(24, 214, 176, 0.16) 0px 0px 60px -10px, rgba(24, 214, 176, 0.25) 0px 1px 0px 0px inset;">
-    <!-- Radiant ambient glow and top highlight -->
-    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/20 rounded-full blur-[100px] -z-0"></div>
-    <div class="pointer-events-none absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
-
-    <!-- 4-Column Navigation Grid -->
-    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-10 lg:gap-12 mb-10">
-      <!-- Column 1: ECAD Bridge Brand & Status -->
-      <div class="space-y-4 pr-0 lg:pr-6">
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-teal-500/20 border border-[#2dd4bf]/40 flex items-center justify-center text-[#2dd4bf] shadow-[0_0_14px_rgba(45,212,191,0.25)] shrink-0">
-            <svg class="w-6 h-6 stroke-current fill-none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
-              <rect height="14" rx="2" width="14" x="5" y="5"></rect>
-              <path d="M9 9h6v6H9z"></path>
-              <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"></path>
-            </svg>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-headline text-[24px] text-white font-bold tracking-tight leading-tight">ECAD Bridge</span>
-            <span class="font-mono text-[11px] text-[#2dd4bf] tracking-widest uppercase font-semibold">SYSTEMS ARCHITECTURE</span>
-          </div>
-        </div>
-        <p class="font-body text-sm leading-relaxed max-w-sm" style="color: #8b9bb0;">
-          High-fidelity electronic design bridge powering precision schematics, component synthesis, transmission line solvers, and multi-CAD interchange specifications.
+<!-- FOOTER: EXACT MINIMALIST LUXURY DESIGN (REFERENCE MOCKUP) -->
+<footer class="relative w-full z-20 py-10 md:py-14 px-4 sm:px-6 md:px-8 bg-background overflow-hidden">
+  <div class="relative max-w-7xl mx-auto rounded-[32px] bg-[#0c0f14] border border-white/10 shadow-2xl overflow-hidden pt-12 md:pt-16 px-6 md:px-12 lg:px-16 pb-8 flex flex-col justify-between" style="min-height: 480px;">
+    
+    <!-- Top 4-Column Navigation Row -->
+    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 lg:mb-14">
+      
+      <!-- Column 1: About -->
+      <div>
+        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">About</h4>
+        <p class="text-[12px] leading-relaxed text-[#8a929f] font-body max-w-[240px]">
+          Engineering platform designed to bring precision, clarity, and timeless hardware architecture.
         </p>
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-teal-500/30 text-[11px] font-mono text-primary shadow-sm mt-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]"></span>
-          <span class="font-semibold text-emerald-400 tracking-wide">CORE OPERATIONAL</span>
-          <span class="text-slate-500">·</span>
-          <span class="text-slate-300">V4.8.2-SPEC</span>
+      </div>
+
+      <!-- Column 2: Get Updates -->
+      <div>
+        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Get Updates</h4>
+        <p class="text-[12px] leading-relaxed text-[#8a929f] font-body mb-4 max-w-[250px]">
+          Share your email and receive engineering analysis and hardware updates.
+        </p>
+        <form class="relative max-w-[250px] border-b border-white/20 focus-within:border-white transition-colors pb-1.5 flex items-center" onsubmit="event.preventDefault(); window.handleFooterNewsletter(this);">
+          <input 
+            type="email" 
+            placeholder="Email Address" 
+            required 
+            class="w-full bg-transparent text-[12px] text-white placeholder-[#5a6270] border-none ring-0 outline-none focus:outline-none focus:ring-0 shadow-none pr-6 font-body"
+            style="box-shadow: none; border: none; outline: none;"
+          >
+          <button type="submit" aria-label="Submit" class="text-white hover:text-primary transition-colors text-sm font-light leading-none">
+            →
+          </button>
+        </form>
+        <div class="hidden font-mono text-[11px] text-primary pt-2 flex items-center gap-1.5" id="footer-newsletter-feedback">
+          <span>✓</span>
+          <span>Subscribed successfully.</span>
         </div>
       </div>
 
-      <!-- Column 2: Explore -->
-      <div>
-        <div class="font-mono text-xs uppercase tracking-wider font-semibold text-white mb-5">
-          EXPLORE
-        </div>
-        <ul class="space-y-4 font-body text-sm" style="color: #8b9bb0;">
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Calculators Suite</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">FootprintForge IPC</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">SymForge IEEE</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Signal Integrity Node</a></li>
+      <!-- Column 3: Menu -->
+      <div class="lg:pl-6">
+        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Menu</h4>
+        <ul class="space-y-2 text-[12px] text-[#8a929f] font-body">
+          <li><a href="#" class="hover:text-white transition-colors block">Calculators</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">FootprintForge</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">SymForge</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">Documentation</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Resources -->
-      <div>
-        <div class="font-mono text-xs uppercase tracking-wider font-semibold text-white mb-5">
-          RESOURCES
-        </div>
-        <ul class="space-y-4 font-body text-sm" style="color: #8b9bb0;">
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Documentation &amp; Whitepapers</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">IPC-7351C Specs</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Gerber X3 Exporters</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">STEP 3D Models Library</a></li>
+      <!-- Column 4: Connect With Us -->
+      <div class="lg:pl-6">
+        <h4 class="text-[13px] font-medium text-white mb-3 tracking-wide font-headline">Connect With Us</h4>
+        <ul class="space-y-2 text-[12px] text-[#8a929f] font-body">
+          <li><a href="#" class="hover:text-white transition-colors block">GitHub</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">Telegram</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">Discord</a></li>
+          <li><a href="#" class="hover:text-white transition-colors block">Email</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Company -->
-      <div>
-        <div class="font-mono text-xs uppercase tracking-wider font-semibold text-white mb-5">
-          COMPANY
-        </div>
-        <ul class="space-y-4 font-body text-sm" style="color: #8b9bb0;">
-          <li class=""><a class="hover:text-white transition-colors block" href="#">About ECAD Bridge</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">System Architects &amp; Contact</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Security Compliance</a></li>
-          <li class=""><a class="hover:text-white transition-colors block" href="#">Terms of Analysis</a></li>
-        </ul>
-      </div>
     </div>
 
-    <!-- Oversized Dominant Watermark Text (180px - 210px scale) positioned between grid and bottom bar -->
-    <div aria-hidden="true" class="relative w-full overflow-hidden select-none pointer-events-none z-[2] mt-4 mb-2 flex justify-center items-center" style="height: clamp(5.5rem, 14vw, 11rem);">
-      <div class="font-headline uppercase whitespace-nowrap text-white/[0.06] font-extrabold select-none pointer-events-none w-full text-center tracking-tight leading-none" style="font-size: clamp(4.5rem, 15vw, 12.5rem); letter-spacing: -0.04em;">
+    <!-- Monumental Giant Brand Wordmark "ECAD BRIDGE" -->
+    <div aria-hidden="true" class="relative w-full overflow-hidden select-none pointer-events-none my-auto flex justify-center items-center py-2">
+      <div class="font-headline uppercase whitespace-nowrap font-black select-none pointer-events-none w-full text-center tracking-tighter leading-none" style="font-size: clamp(3.5rem, 11vw, 9.6rem); letter-spacing: -0.04em; color: rgba(255, 255, 255, 0.08);">
         ECAD BRIDGE
       </div>
     </div>
 
-    <!-- Bottom metadata bar as final closing element strictly below the watermark -->
-    <div class="relative z-10 border-t border-white/10 py-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono" style="color: #6b7686;">
-      <div class="flex items-center gap-2 text-center sm:text-left">
-        <span class="">© 2026 ECAD Bridge Systems Ltd. Rigorous hardware design verification.</span>
-      </div>
-      <div class="flex items-center gap-2 text-center sm:text-right text-slate-400">
-        <span class="text-primary">ISO 9001:2015 Spec Ready</span>
-        <span class="">·</span>
-        <span class="">Strict Coordinate Precision</span>
-      </div>
+    <!-- Bottom Copyright Note -->
+    <div class="relative z-10 pt-4 text-[11px] text-[#555d6b] font-body">
+      @2026 ecadbridge. All Right Reserved.
     </div>
+
   </div>
 </footer>
 <script>
