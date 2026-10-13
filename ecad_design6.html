@@ -120,6 +120,29 @@ html[data-intro] #intro-overlay{display:block}
 
 @media (max-width:640px){.ct-viewport{padding-top:24px!important;padding-bottom:28px!important}.ct-frame{width:290px;height:242px;margin:-121px 0 0 -145px}}
 @media (prefers-reduced-motion:reduce){.ct-frame{animation:none}.trending-header-reveal,.trending-carousel-reveal{opacity:1!important;transform:none!important;filter:none!important}}
+
+/* Newsletter Continuous Flowing Gradient Wave Effect (Left-to-Right, z-0) */
+.nl-wave-container{position:absolute;inset:-30px;overflow:hidden;pointer-events:none;z-index:0;border-radius:1.5rem}
+.nl-wave-base{position:absolute;inset:0;background:#080d12;z-index:1}
+.nl-wave-track{position:absolute;top:-25%;bottom:-25%;left:0;width:200%;z-index:2;filter:blur(60px);opacity:0.92;will-change:transform;animation:nlFlowLeftToRight 10s linear infinite;
+ background:linear-gradient(90deg,#070f18 0%,rgba(0,229,191,0.32) 15%,rgba(0,153,255,0.28) 28%,#070f18 45%,#080d12 50%,#070f18 55%,rgba(0,229,191,0.32) 65%,rgba(0,153,255,0.28) 78%,#070f18 95%,#080d12 100%)}
+.nl-wave-track-2{position:absolute;top:-20%;bottom:-20%;left:0;width:200%;z-index:3;filter:blur(55px);opacity:0.8;will-change:transform;animation:nlFlowLeftToRightSecondary 8.5s ease-in-out infinite alternate;
+ background:radial-gradient(ellipse 42% 70% at 25% 45%,rgba(0,229,191,0.35) 0%,transparent 65%),radial-gradient(ellipse 45% 70% at 75% 55%,rgba(0,153,255,0.32) 0%,transparent 65%),radial-gradient(ellipse 35% 60% at 50% 50%,rgba(24,214,176,0.22) 0%,transparent 70%);
+ background-size:100% 100%}
+.nl-wave-pulse{position:absolute;inset:0;width:200%;z-index:4;filter:blur(65px);opacity:0.65;will-change:transform;animation:nlFlowLeftToRight 12s linear infinite;
+ background:linear-gradient(105deg,transparent 0%,rgba(0,229,191,0.25) 20%,rgba(0,153,255,0.3) 32%,transparent 45%,transparent 50%,rgba(0,229,191,0.25) 70%,rgba(0,153,255,0.3) 82%,transparent 95%)}
+@keyframes nlFlowLeftToRight{
+ 0%{transform:translateX(-50%)}
+ 100%{transform:translateX(0%)}
+}
+@keyframes nlFlowLeftToRightSecondary{
+ 0%{transform:translateX(-25%) scaleY(0.92)}
+ 50%{transform:translateX(-5%) scaleY(1.08)}
+ 100%{transform:translateX(15%) scaleY(0.96)}
+}
+@media (prefers-reduced-motion:reduce){
+ .nl-wave-track,.nl-wave-track-2,.nl-wave-pulse{animation:none!important}
+}
 </style></head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-black min-h-screen flex flex-col justify-between overflow-x-hidden" style="background: radial-gradient(120% 100% at 50% 0%, rgb(11, 31, 42) 0%, rgb(5, 10, 18) 60%, rgb(3, 6, 11) 100%) fixed;">
 
@@ -1044,15 +1067,19 @@ Practical impedance conjugation for 2.4 GHz and 5 GHz onboard trace antennas.
 <!-- SECTION 5: ENGINEERING NEWSLETTER (Direct transition from articles, NO Featured Works) -->
 <section class="w-full bg-[#080D14] py-16 lg:py-24 relative overflow-hidden border-t border-white/5">
 <div class="max-w-[1200px] mx-auto px-6 md:px-10">
-<div class="relative rounded-3xl bg-[#090e16] p-8 md:p-14 lg:p-16 shadow-2xl overflow-hidden border border-white/10" style="isolation: isolate;">
-<!-- Organic Continuous Animated Gradient Wave Layers -->
-<div aria-hidden="true" class="newsletter-gradient-wave-1 -z-10"></div>
-<div aria-hidden="true" class="newsletter-gradient-wave-2 -z-10"></div>
+<div class="relative rounded-3xl bg-[#080d12] p-8 md:p-14 lg:p-16 shadow-2xl overflow-hidden border border-white/10" style="isolation: isolate;">
+<!-- Left-to-Right Continuous Flowing Gradient Waves (Background z-0) -->
+<div aria-hidden="true" class="nl-wave-container">
+<div class="nl-wave-base"></div>
+<div class="nl-wave-track"></div>
+<div class="nl-wave-track-2"></div>
+<div class="nl-wave-pulse"></div>
+</div>
 <!-- Subtle Ambient Radial Glows -->
-<div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
-<div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-[100px] -z-10"></div>
+<div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] z-[1]"></div>
+<div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-[100px] z-[1]"></div>
 <!-- Subtle surface grid mesh overlay for high-tech fidelity -->
-<div class="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(#18D6B0_1px,transparent_1px)] [background-size:20px_20px] -z-10"></div>
+<div class="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(#18D6B0_1px,transparent_1px)] [background-size:20px_20px] z-[2]"></div>
 <div class="relative z-10 max-w-2xl mx-auto text-center">
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary font-mono text-xs font-semibold tracking-wider uppercase mb-4 border border-white/5 backdrop-blur-sm">
 <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
