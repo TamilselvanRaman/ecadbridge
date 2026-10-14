@@ -87,18 +87,25 @@
 
 <main class="wrap">
   <header>
-    <span class="eyebrow rv" style="--d:0ms"><span class="dot"></span>ECAD Bridge · Design Showcase</span>
-    <h1 class="rv" style="--d:120ms">Six Designs.<br>One Platform.</h1>
+    <div class="rv" style="--d:0ms;margin-bottom:20px">
+      <img src="images/logos/ecad-logo-primary.svg" alt="eCAD Bridge" style="height:48px;width:auto;object-fit:contain" />
+    </div>
+    <span class="eyebrow rv" style="--d:80ms"><span class="dot"></span>Design Showcase Hub</span>
+    <h1 class="rv" style="--d:160ms">Six Designs.<br>One Platform.</h1>
     <p class="sub rv" style="--d:240ms">Pick a design direction below. Each opens full screen in a live preview, with scroll-reveal animations and interactive cards. Use the tabs to flip between designs.</p>
   </header>
 
   <section class="cards" id="cards" aria-label="Design options"></section>
-  <footer class="rv">ECAD Bridge — Engineering Knowledge Platform · Press <b>Esc</b> to close a preview · Use <b>←</b> / <b>→</b> to switch</footer>
+  <footer class="rv" style="display:flex;flex-direction:column;align-items:center;gap:12px">
+    <img src="images/logos/ecad-logo-primary.svg" alt="eCAD Bridge" style="height:56px;width:auto;object-fit:contain;opacity:0.85" />
+    <div>eCAD Bridge — Engineering Knowledge Platform · Press <b>Esc</b> to close a preview · Use <b>←</b> / <b>→</b> to switch</div>
+  </footer>
 </main>
 
 <div id="viewer" role="dialog" aria-label="Design preview" aria-hidden="true">
   <div class="vbar">
     <button id="closeBtn" type="button"><span class="material-symbols-outlined" style="font-size:18px">arrow_back</span>Hub</button>
+    <img src="images/logos/ecad-logo-primary.svg" alt="eCAD Bridge" style="height:32px;width:auto;object-fit:contain;margin:0 6px" />
     <div class="tabs" id="tabs"></div>
     <span class="sp"></span>
     <a id="newTab" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined" style="font-size:18px">open_in_new</span>New tab</a>
