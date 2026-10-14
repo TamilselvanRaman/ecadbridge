@@ -9,9 +9,14 @@
 <style>
 @layer base {
   html, body { margin: 0; padding: 0; }
-  body { overscroll-behavior: none; }
+  html { overflow-x: hidden; overflow-y: auto; scroll-behavior: smooth; }
+  body { overflow-x: hidden; overflow-y: visible; overscroll-behavior-y: auto; }
 }
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(9, 14, 22, 0.85); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.22); border-radius: 999px; border: 2px solid rgba(9, 14, 22, 0.85); }
+::-webkit-scrollbar-thumb:hover { background: #18D6B0; }
+* { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.22) rgba(9, 14, 22, 0.85); }
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -95,7 +100,7 @@ html[data-intro] #intro-overlay{display:block}
 </style><style>
 /* 3D-depth trending carousel: Static Cutout Frame + Lit Center Image + Subtle Side Blur */
 .ct-viewport{position:relative;padding-top:30px!important;padding-bottom:36px!important;touch-action:pan-y}
-.ct-stage{position:relative;height:284px;transform-style:preserve-3d;cursor:grab;user-select:none;-webkit-user-select:none;display:block!important;gap:0!important;padding:0!important;animation:none!important;width:100%!important}
+.ct-stage{position:relative;height:284px;transform-style:preserve-3d;cursor:grab;user-select:none;-webkit-user-select:none;display:block!important;gap:0!important;padding:0!important;animation:none!important;width:100%!important;touch-action:pan-y}
 .ct-stage.ct-grabbing{cursor:grabbing}
 #trending-track3d .trending-card{position:absolute!important;left:50%;top:50%;margin:-121px 0 0 -147.5px;transition:border-color .3s,box-shadow .3s!important;will-change:transform,opacity,filter;backface-visibility:hidden;border-radius:1rem;background:#0d1624}
 #trending-track3d .trending-card::after{display:none}

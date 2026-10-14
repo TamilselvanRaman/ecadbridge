@@ -4,6 +4,8 @@
     var viewport = document.getElementById('trending-viewport');
     var track = document.getElementById('trending-track');
     if (!viewport || !track) return;
+    viewport.style.touchAction = 'pan-y';
+    track.style.touchAction = 'pan-y';
     var GAP = 20;
 
     // keep only real cards (drop the single hand-made duplicate), then clone full set once

@@ -12,9 +12,14 @@
 <style>
 @layer base {
   html, body { margin: 0; padding: 0; }
-  body { overscroll-behavior: none; }
+  html { overflow-x: hidden; overflow-y: auto; scroll-behavior: smooth; }
+  body { overflow-x: hidden; overflow-y: visible; overscroll-behavior-y: auto; }
 }
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(2, 16, 36, 0.85); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.22); border-radius: 999px; border: 2px solid rgba(2, 16, 36, 0.85); }
+::-webkit-scrollbar-thumb:hover { background: #C1E8FF; }
+* { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.22) rgba(2, 16, 36, 0.85); }
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

@@ -68,8 +68,14 @@
   .vbar .tabs{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .vbar .tabs::-webkit-scrollbar{display:none}
   #frame{flex:1;border:0;width:100%;background:#000}
-  .loader{position:absolute;inset:56px 0 0;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .4s;pointer-events:none}
-  .loader.hide{opacity:0}
+  /* Sleek visible scrollbar */
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:rgba(7,11,18,.8)}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22);border-radius:999px;border:2px solid rgba(7,11,18,.8)}
+  ::-webkit-scrollbar-thumb:hover{background:#18D6B0}
+  *{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.22) rgba(7,11,18,.8)}
+  .loader{position:absolute;inset:56px 0 0;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .3s;pointer-events:none;z-index:20}
+  .loader.hide{opacity:0;pointer-events:none;display:none!important}
   .spin{width:44px;height:44px;border-radius:50%;border:4px solid rgba(255,255,255,.15);border-top-color:#18D6B0;animation:sp 0.8s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
   @media(max-width:640px){.wrap{padding:40px 16px 60px}h1{font-size:2.2rem;line-height:1.15}.cards{grid-template-columns:1fr;gap:16px}}
@@ -139,7 +145,10 @@
     current = i;
     var d = designs[i];
     loader.classList.remove('hide');
-    frame.onload = function(){ loader.classList.add('hide'); };
+    frame.onload = function(){
+      loader.classList.add('hide');
+      try { frame.focus(); } catch(err){}
+    };
     frame.src = d.file;
     newTab.href = d.file;
     Array.prototype.forEach.call(tabs.children, function(t,k){ t.classList.toggle('act', k===i); });
@@ -147,6 +156,16 @@
     viewer.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
     history.replaceState(null,'','#design'+(i+1));
+  }
+  var vbarEl = document.querySelector('.vbar');
+  if (vbarEl) {
+    vbarEl.addEventListener('wheel', function(e){
+      try {
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.scrollBy({ top: e.deltaY, behavior: 'auto' });
+        }
+      } catch(err){}
+    }, { passive: true });
   }
   function closeDesign(){
     viewer.classList.remove('open');

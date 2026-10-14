@@ -36,7 +36,9 @@
     var n = cards.length;
 
     track.className = 'ct-stage';
+    track.style.touchAction = 'pan-y';
     viewport.style.perspective = '1000px';
+    viewport.style.touchAction = 'pan-y';
     viewport.classList.add('ct-viewport');
 
     /* Static Cutout Center Frame with bottom notch accent */
